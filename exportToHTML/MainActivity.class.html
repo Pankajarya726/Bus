@@ -1,0 +1,165 @@
+<html>
+<head>
+<title>MainActivity.class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(128,128,128); font-style: italic; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(0,0,128); font-weight: bold; }
+.s3 { color: rgb(0,128,0); font-weight: bold; }
+.s4 { color: rgb(0,0,255); }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+MainActivity.class</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<a name="l1"><span class="ln">1    </span></a><span class="s0">//</span><span class="s1"> 
+<a name="l2"><span class="ln">2    </span></a></span><span class="s0">// Source code recreated from a .class file by IntelliJ IDEA</span><span class="s1"> 
+<a name="l3"><span class="ln">3    </span></a></span><span class="s0">// (powered by Fernflower decompiler)</span><span class="s1"> 
+<a name="l4"><span class="ln">4    </span></a></span><span class="s0">//</span><span class="s1"> 
+<a name="l5"><span class="ln">5    </span></a> 
+<a name="l6"><span class="ln">6    </span></a></span><span class="s2">package </span><span class="s1">com.busbooking.bus; 
+<a name="l7"><span class="ln">7    </span></a> 
+<a name="l8"><span class="ln">8    </span></a></span><span class="s2">import </span><span class="s1">android.app.DatePickerDialog; 
+<a name="l9"><span class="ln">9    </span></a></span><span class="s2">import </span><span class="s1">android.app.DatePickerDialog.OnDateSetListener; 
+<a name="l10"><span class="ln">10   </span></a></span><span class="s2">import </span><span class="s1">android.content.Intent; 
+<a name="l11"><span class="ln">11   </span></a></span><span class="s2">import </span><span class="s1">android.os.Bundle; 
+<a name="l12"><span class="ln">12   </span></a></span><span class="s2">import </span><span class="s1">android.support.v7.app.AppCompatActivity; 
+<a name="l13"><span class="ln">13   </span></a></span><span class="s2">import </span><span class="s1">android.util.Log; 
+<a name="l14"><span class="ln">14   </span></a></span><span class="s2">import </span><span class="s1">android.view.View; 
+<a name="l15"><span class="ln">15   </span></a></span><span class="s2">import </span><span class="s1">android.view.View.OnClickListener; 
+<a name="l16"><span class="ln">16   </span></a></span><span class="s2">import </span><span class="s1">android.widget.ArrayAdapter; 
+<a name="l17"><span class="ln">17   </span></a></span><span class="s2">import </span><span class="s1">android.widget.AutoCompleteTextView; 
+<a name="l18"><span class="ln">18   </span></a></span><span class="s2">import </span><span class="s1">android.widget.Button; 
+<a name="l19"><span class="ln">19   </span></a></span><span class="s2">import </span><span class="s1">android.widget.DatePicker; 
+<a name="l20"><span class="ln">20   </span></a></span><span class="s2">import </span><span class="s1">android.widget.ImageView; 
+<a name="l21"><span class="ln">21   </span></a></span><span class="s2">import </span><span class="s1">android.widget.TextView; 
+<a name="l22"><span class="ln">22   </span></a></span><span class="s2">import </span><span class="s1">java.io.IOException; 
+<a name="l23"><span class="ln">23   </span></a></span><span class="s2">import </span><span class="s1">java.io.InputStream; 
+<a name="l24"><span class="ln">24   </span></a></span><span class="s2">import </span><span class="s1">java.text.SimpleDateFormat; 
+<a name="l25"><span class="ln">25   </span></a></span><span class="s2">import </span><span class="s1">java.util.ArrayList; 
+<a name="l26"><span class="ln">26   </span></a></span><span class="s2">import </span><span class="s1">java.util.Calendar; 
+<a name="l27"><span class="ln">27   </span></a></span><span class="s2">import </span><span class="s1">java.util.List; 
+<a name="l28"><span class="ln">28   </span></a></span><span class="s2">import </span><span class="s1">java.util.Locale; 
+<a name="l29"><span class="ln">29   </span></a></span><span class="s2">import </span><span class="s1">org.json.JSONArray; 
+<a name="l30"><span class="ln">30   </span></a></span><span class="s2">import </span><span class="s1">org.json.JSONException; 
+<a name="l31"><span class="ln">31   </span></a></span><span class="s2">import </span><span class="s1">org.json.JSONObject; 
+<a name="l32"><span class="ln">32   </span></a> 
+<a name="l33"><span class="ln">33   </span></a></span><span class="s2">public class </span><span class="s1">MainActivity </span><span class="s2">extends </span><span class="s1">AppCompatActivity { 
+<a name="l34"><span class="ln">34   </span></a>    TextView tv_journy_date; 
+<a name="l35"><span class="ln">35   </span></a>    Button btn_today; 
+<a name="l36"><span class="ln">36   </span></a>    Button bt_tomorrow; 
+<a name="l37"><span class="ln">37   </span></a>    Button bt_Search; 
+<a name="l38"><span class="ln">38   </span></a>    </span><span class="s2">private </span><span class="s1">SimpleDateFormat dateFormatter; 
+<a name="l39"><span class="ln">39   </span></a>    AutoCompleteTextView et_from; 
+<a name="l40"><span class="ln">40   </span></a>    AutoCompleteTextView et_to; 
+<a name="l41"><span class="ln">41   </span></a>    ImageView iv_calander; 
+<a name="l42"><span class="ln">42   </span></a>    String date = </span><span class="s3">&quot;&quot;</span><span class="s1">; 
+<a name="l43"><span class="ln">43   </span></a>    List&lt;String&gt; city; 
+<a name="l44"><span class="ln">44   </span></a>    List&lt;String&gt; state; 
+<a name="l45"><span class="ln">45   </span></a>    </span><span class="s2">private </span><span class="s1">DatePickerDialog fromDatePickerDialog; 
+<a name="l46"><span class="ln">46   </span></a> 
+<a name="l47"><span class="ln">47   </span></a>    </span><span class="s2">public </span><span class="s1">MainActivity() { 
+<a name="l48"><span class="ln">48   </span></a>    } 
+<a name="l49"><span class="ln">49   </span></a> 
+<a name="l50"><span class="ln">50   </span></a>    </span><span class="s2">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) { 
+<a name="l51"><span class="ln">51   </span></a>        </span><span class="s2">super</span><span class="s1">.onCreate(savedInstanceState); 
+<a name="l52"><span class="ln">52   </span></a>        </span><span class="s2">this</span><span class="s1">.setContentView(</span><span class="s4">2131296284</span><span class="s1">); 
+<a name="l53"><span class="ln">53   </span></a>        </span><span class="s2">this</span><span class="s1">.tv_journy_date = (TextView)</span><span class="s2">this</span><span class="s1">.findViewById(</span><span class="s4">2131165241</span><span class="s1">); 
+<a name="l54"><span class="ln">54   </span></a>        </span><span class="s2">this</span><span class="s1">.iv_calander = (ImageView)</span><span class="s2">this</span><span class="s1">.findViewById(</span><span class="s4">2131165226</span><span class="s1">); 
+<a name="l55"><span class="ln">55   </span></a>        </span><span class="s2">this</span><span class="s1">.btn_today = (Button)</span><span class="s2">this</span><span class="s1">.findViewById(</span><span class="s4">2131165223</span><span class="s1">); 
+<a name="l56"><span class="ln">56   </span></a>        </span><span class="s2">this</span><span class="s1">.bt_tomorrow = (Button)</span><span class="s2">this</span><span class="s1">.findViewById(</span><span class="s4">2131165224</span><span class="s1">); 
+<a name="l57"><span class="ln">57   </span></a>        </span><span class="s2">this</span><span class="s1">.bt_Search = (Button)</span><span class="s2">this</span><span class="s1">.findViewById(</span><span class="s4">2131165222</span><span class="s1">); 
+<a name="l58"><span class="ln">58   </span></a>        </span><span class="s2">this</span><span class="s1">.et_from = (AutoCompleteTextView)</span><span class="s2">this</span><span class="s1">.findViewById(</span><span class="s4">2131165250</span><span class="s1">); 
+<a name="l59"><span class="ln">59   </span></a>        </span><span class="s2">this</span><span class="s1">.et_to = (AutoCompleteTextView)</span><span class="s2">this</span><span class="s1">.findViewById(</span><span class="s4">2131165251</span><span class="s1">); 
+<a name="l60"><span class="ln">60   </span></a>        </span><span class="s2">this</span><span class="s1">.obj_list(); 
+<a name="l61"><span class="ln">61   </span></a>        ArrayAdapter&lt;String&gt; adapter = </span><span class="s2">new </span><span class="s1">ArrayAdapter(</span><span class="s2">this</span><span class="s1">, </span><span class="s4">17367050</span><span class="s1">, </span><span class="s2">this</span><span class="s1">.city); 
+<a name="l62"><span class="ln">62   </span></a>        </span><span class="s2">this</span><span class="s1">.et_from.setAdapter(adapter); 
+<a name="l63"><span class="ln">63   </span></a>        ArrayAdapter&lt;String&gt; adapter1 = </span><span class="s2">new </span><span class="s1">ArrayAdapter(</span><span class="s2">this</span><span class="s1">, </span><span class="s4">17367050</span><span class="s1">, </span><span class="s2">this</span><span class="s1">.city); 
+<a name="l64"><span class="ln">64   </span></a>        </span><span class="s2">this</span><span class="s1">.et_to.setAdapter(adapter1); 
+<a name="l65"><span class="ln">65   </span></a>        </span><span class="s2">this</span><span class="s1">.getDate(); 
+<a name="l66"><span class="ln">66   </span></a>        </span><span class="s2">this</span><span class="s1">.btn_today.setOnClickListener(</span><span class="s2">new </span><span class="s1">OnClickListener() { 
+<a name="l67"><span class="ln">67   </span></a>            </span><span class="s2">public void </span><span class="s1">onClick(View v) { 
+<a name="l68"><span class="ln">68   </span></a>                MainActivity.</span><span class="s2">this</span><span class="s1">.getDate(); 
+<a name="l69"><span class="ln">69   </span></a>            } 
+<a name="l70"><span class="ln">70   </span></a>        }); 
+<a name="l71"><span class="ln">71   </span></a>        </span><span class="s2">this</span><span class="s1">.dateFormatter = </span><span class="s2">new </span><span class="s1">SimpleDateFormat(</span><span class="s3">&quot;dd-MM-yyyy&quot;</span><span class="s1">, Locale.ENGLISH); 
+<a name="l72"><span class="ln">72   </span></a>        </span><span class="s2">this</span><span class="s1">.tv_journy_date.setInputType(</span><span class="s4">16</span><span class="s1">); 
+<a name="l73"><span class="ln">73   </span></a>        </span><span class="s2">this</span><span class="s1">.tv_journy_date.requestFocus(); 
+<a name="l74"><span class="ln">74   </span></a>        </span><span class="s2">this</span><span class="s1">.iv_calander.setOnClickListener(</span><span class="s2">new </span><span class="s1">OnClickListener() { 
+<a name="l75"><span class="ln">75   </span></a>            </span><span class="s2">public void </span><span class="s1">onClick(View view) { 
+<a name="l76"><span class="ln">76   </span></a>                String date1 = MainActivity.</span><span class="s2">this</span><span class="s1">.selectdate(); 
+<a name="l77"><span class="ln">77   </span></a>                MainActivity.</span><span class="s2">this</span><span class="s1">.tv_journy_date.setText(date1); 
+<a name="l78"><span class="ln">78   </span></a>            } 
+<a name="l79"><span class="ln">79   </span></a>        }); 
+<a name="l80"><span class="ln">80   </span></a>        </span><span class="s2">this</span><span class="s1">.bt_Search.setOnClickListener(</span><span class="s2">new </span><span class="s1">OnClickListener() { 
+<a name="l81"><span class="ln">81   </span></a>            </span><span class="s2">public void </span><span class="s1">onClick(View v) { 
+<a name="l82"><span class="ln">82   </span></a>                MainActivity.</span><span class="s2">this</span><span class="s1">.startActivity(</span><span class="s2">new </span><span class="s1">Intent(MainActivity.</span><span class="s2">this</span><span class="s1">, BusList.</span><span class="s2">class</span><span class="s1">)); 
+<a name="l83"><span class="ln">83   </span></a>            } 
+<a name="l84"><span class="ln">84   </span></a>        }); 
+<a name="l85"><span class="ln">85   </span></a>    } 
+<a name="l86"><span class="ln">86   </span></a> 
+<a name="l87"><span class="ln">87   </span></a>    </span><span class="s2">private </span><span class="s1">String selectdate() { 
+<a name="l88"><span class="ln">88   </span></a>        Calendar newCalendar = Calendar.getInstance(); 
+<a name="l89"><span class="ln">89   </span></a>        </span><span class="s2">this</span><span class="s1">.fromDatePickerDialog = </span><span class="s2">new </span><span class="s1">DatePickerDialog(</span><span class="s2">this</span><span class="s1">, </span><span class="s2">new </span><span class="s1">OnDateSetListener() { 
+<a name="l90"><span class="ln">90   </span></a>            </span><span class="s2">public void </span><span class="s1">onDateSet(DatePicker view, </span><span class="s2">int </span><span class="s1">year, </span><span class="s2">int </span><span class="s1">monthOfYear, </span><span class="s2">int </span><span class="s1">dayOfMonth) { 
+<a name="l91"><span class="ln">91   </span></a>                Calendar newDate = Calendar.getInstance(); 
+<a name="l92"><span class="ln">92   </span></a>                newDate.set(year, monthOfYear, dayOfMonth); 
+<a name="l93"><span class="ln">93   </span></a>                MainActivity.</span><span class="s2">this</span><span class="s1">.date = MainActivity.</span><span class="s2">this</span><span class="s1">.dateFormatter.format(newDate.getTime()); 
+<a name="l94"><span class="ln">94   </span></a>            } 
+<a name="l95"><span class="ln">95   </span></a>        }, newCalendar.get(</span><span class="s4">1</span><span class="s1">), newCalendar.get(</span><span class="s4">2</span><span class="s1">), newCalendar.get(</span><span class="s4">5</span><span class="s1">)); 
+<a name="l96"><span class="ln">96   </span></a>        </span><span class="s2">this</span><span class="s1">.fromDatePickerDialog.show(); 
+<a name="l97"><span class="ln">97   </span></a>        </span><span class="s2">return this</span><span class="s1">.date; 
+<a name="l98"><span class="ln">98   </span></a>    } 
+<a name="l99"><span class="ln">99   </span></a> 
+<a name="l100"><span class="ln">100  </span></a>    </span><span class="s2">private void </span><span class="s1">getDate() { 
+<a name="l101"><span class="ln">101  </span></a>        Calendar calendar = Calendar.getInstance(); 
+<a name="l102"><span class="ln">102  </span></a>        SimpleDateFormat mdformat = </span><span class="s2">new </span><span class="s1">SimpleDateFormat(</span><span class="s3">&quot;dd-MM-YYYY&quot;</span><span class="s1">); 
+<a name="l103"><span class="ln">103  </span></a>        String strDate = mdformat.format(calendar.getTime()); 
+<a name="l104"><span class="ln">104  </span></a>        Log.d(</span><span class="s3">&quot;tage&quot;</span><span class="s1">, </span><span class="s3">&quot;date is&quot; </span><span class="s1">+ strDate); 
+<a name="l105"><span class="ln">105  </span></a>        </span><span class="s2">this</span><span class="s1">.tv_journy_date.setText(strDate); 
+<a name="l106"><span class="ln">106  </span></a>    } 
+<a name="l107"><span class="ln">107  </span></a> 
+<a name="l108"><span class="ln">108  </span></a>    </span><span class="s2">public </span><span class="s1">String getJson() { 
+<a name="l109"><span class="ln">109  </span></a>        String json = </span><span class="s2">null</span><span class="s1">; 
+<a name="l110"><span class="ln">110  </span></a> 
+<a name="l111"><span class="ln">111  </span></a>        </span><span class="s2">try </span><span class="s1">{ 
+<a name="l112"><span class="ln">112  </span></a>            InputStream is = </span><span class="s2">this</span><span class="s1">.getAssets().open(</span><span class="s3">&quot;cities.json&quot;</span><span class="s1">); 
+<a name="l113"><span class="ln">113  </span></a>            </span><span class="s2">int </span><span class="s1">size = is.available(); 
+<a name="l114"><span class="ln">114  </span></a>            </span><span class="s2">byte</span><span class="s1">[] buffer = </span><span class="s2">new byte</span><span class="s1">[size]; 
+<a name="l115"><span class="ln">115  </span></a>            is.read(buffer); 
+<a name="l116"><span class="ln">116  </span></a>            is.close(); 
+<a name="l117"><span class="ln">117  </span></a>            json = </span><span class="s2">new </span><span class="s1">String(buffer, </span><span class="s3">&quot;UTF-8&quot;</span><span class="s1">); 
+<a name="l118"><span class="ln">118  </span></a>            </span><span class="s2">return </span><span class="s1">json; 
+<a name="l119"><span class="ln">119  </span></a>        } </span><span class="s2">catch </span><span class="s1">(IOException var5) { 
+<a name="l120"><span class="ln">120  </span></a>            var5.printStackTrace(); 
+<a name="l121"><span class="ln">121  </span></a>            </span><span class="s2">return </span><span class="s1">json; 
+<a name="l122"><span class="ln">122  </span></a>        } 
+<a name="l123"><span class="ln">123  </span></a>    } 
+<a name="l124"><span class="ln">124  </span></a> 
+<a name="l125"><span class="ln">125  </span></a>    </span><span class="s2">void </span><span class="s1">obj_list() { 
+<a name="l126"><span class="ln">126  </span></a>        </span><span class="s2">this</span><span class="s1">.city = </span><span class="s2">new </span><span class="s1">ArrayList(); 
+<a name="l127"><span class="ln">127  </span></a> 
+<a name="l128"><span class="ln">128  </span></a>        </span><span class="s2">try </span><span class="s1">{ 
+<a name="l129"><span class="ln">129  </span></a>            JSONObject jsonObject = </span><span class="s2">new </span><span class="s1">JSONObject(</span><span class="s2">this</span><span class="s1">.getJson()); 
+<a name="l130"><span class="ln">130  </span></a>            JSONArray array = jsonObject.getJSONArray(</span><span class="s3">&quot;array&quot;</span><span class="s1">); 
+<a name="l131"><span class="ln">131  </span></a> 
+<a name="l132"><span class="ln">132  </span></a>            </span><span class="s2">for</span><span class="s1">(</span><span class="s2">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s1">; i &lt; array.length(); ++i) { 
+<a name="l133"><span class="ln">133  </span></a>                JSONObject object = array.getJSONObject(i); 
+<a name="l134"><span class="ln">134  </span></a>                String cit = object.getString(</span><span class="s3">&quot;name&quot;</span><span class="s1">); 
+<a name="l135"><span class="ln">135  </span></a>                </span><span class="s2">this</span><span class="s1">.city.add(cit); 
+<a name="l136"><span class="ln">136  </span></a>            } 
+<a name="l137"><span class="ln">137  </span></a>        } </span><span class="s2">catch </span><span class="s1">(JSONException var6) { 
+<a name="l138"><span class="ln">138  </span></a>            var6.printStackTrace(); 
+<a name="l139"><span class="ln">139  </span></a>        } 
+<a name="l140"><span class="ln">140  </span></a> 
+<a name="l141"><span class="ln">141  </span></a>    } 
+<a name="l142"><span class="ln">142  </span></a>} 
+<a name="l143"><span class="ln">143  </span></a></span></pre>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.BusList">
+
+    <RelativeLayout
+        android:padding="5dp"
+        android:id="@+id/bus_details"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/textview_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="loadseat">
+        <TextView
+            android:id="@+id/bus_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="01:45 - 05-:45 PM(04:00 Hrs)"
+            android:textSize="14dp"
+            android:textColor="#0000f5"
+
+            />
+
+
+        <TextView
+            android:padding="5dp"
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="RS 400"
+            android:textColor="#0000f5"
+            />
+        <TextView
+            android:layout_marginTop="3dp"
+            android:id="@+id/bus_type"
+            android:layout_below="@+id/bus_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="2+2, Volvo Sater,AC"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:id="@+id/service"
+            android:layout_marginTop="3dp"
+            android:layout_below="@+id/bus_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#2a2abc"
+            android:text="Service #INDBPL1234"/>
+
+        <TextView
+            android:id="@+id/available"
+            android:layout_marginTop="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/bus_type"
+            android:text="40 Seats Avl "/>
+
+    </RelativeLayout>
+
+</LinearLayout>
